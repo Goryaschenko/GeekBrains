@@ -1,0 +1,61 @@
+<meta charset="utf-8">
+<script type="text/javascript">
+
+
+
+	function generatText(letters, length){
+		var text = "";
+		for(var i = 0; i < length; i++){
+			var n = getRandomeNumber(letters.length - 1);
+			text = text + letters[n]
+		}
+		return text;
+	}
+
+	function getRandomeNumber(max){
+		return Math.round(Math.random() * max);
+	} 
+
+	function success(unswer) {
+		while (true){
+						var userText = prompt(text);
+			if(userText == text){
+			alert("Ты молодец");
+			break;
+			}else {
+				alert("Вы ошиблись попробуйте еще")
+			}	
+		}
+		
+		return true;
+	}
+
+
+	alert("Вас приветствует программа по обучению слепой печати");
+	var unswer = false;
+	while(unswer == false){	
+		alert("Поставьте мизинец левой руки на букву Ф, безымянный палец — на Ы, средний — на В, указательный — на А. Запомните расположение пальцев. Повторяйте за мной\n" );
+		var text = generatText (["ф","а"], 10); 
+	unswer = success(false)
+		
+	}
+	alert("Переходим на уровень 2");
+
+	unswer = false;
+	while(unswer == false){
+			alert("Поставьте мизинец левой руки на букву Ф, безымянный палец — на Ы, средний — на В, указательный — на А. Мизинец правой руки на букву Ж, безымянный палец — на Д, средний — на Л, указательный — на О. Запомните расположение пальцев. Повторяйте за мной\n" );
+			var text = generatText (["ы","в"], 10);
+		unswer = success(false)
+		}
+
+	unswer = false;
+	while(unswer == false){
+			alert("Пользователь видит сообщение: «Поставьте мизинец левой руки на букву Ф, безымянный палец — на Ы, средний — на В, указательный — на А. Мизинец правой руки на букву Ж, безымянный палец — на Д, средний -— на Л, указательный — на О. Запомните расположение пальцев\n" );
+		
+		var text = generatText (["о","ж"], 10);
+		unswer = success(false)
+		}
+
+alert ("Поздравляем Вы прошли все демо-уровни. Остальное вы сможете найти в полной версии ;Р")	
+
+</script>

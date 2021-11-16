@@ -1,0 +1,13 @@
+<meta charset="utf-8">
+<Script type= "text/javascript">
+
+let Sum = +prompt("Введи сумму вклада");
+let Percent = prompt("Введи годовой процент");
+let SumVklad = Sum; // Сохраняет сумме первого вклада
+
+for (i =1; i<=5; i++){
+	SumVklad = SumVklad/100*Percent+SumVklad;
+	document.write("Размера вашего вклада за " + i + " год составляет " + SumVklad.toFixed(2)  + "<br>");	
+}
+
+</Script>

@@ -1,0 +1,19 @@
+<meta charset="utf-8">
+<Script>
+//курс доллара и евро на 28.11.2020 16:50 МСК
+	alert ("Конвертер валют из Рублей в Даллары и Евро")
+	var usd = 76.08;
+	var euro =91.02;
+	var rub = prompt ("Введи число в рублях для конвертации"); //хранит чило в рублях 
+
+	//переводим переменные в числовой формат
+	usd = parseInt(usd);
+	euro = parseInt(euro);
+	rub = parseInt(rub);
+
+
+	var usd  = rub / usd;
+	var euro  = rub / euro;
+	alert (rub + " Рублей в Долларах = " + usd.toFixed(2) + " $" + "\n" + rub + " Рублей в Евро = " + euro.toFixed(2) + " €");
+    //Команда [переменная].toFixed() сокращает количество знаков после запятой на указанное значение
+</Script>

@@ -1,0 +1,39 @@
+<meta charset="utf-8">
+<script type="text/javascript">
+	
+
+	function askForWords(words){
+		
+		while(words.lenght !=0){
+			var i = parseInt(Math.random() * words.length);
+			var userUnswer = prompt("Как переводится слово: " + words[i][0]);
+			if(userUnswer == words[i][1]){
+				alert("Правильный ответ");
+				words.splice(i, 1) //Удалить из массива i строку до столбца с индексом 1
+			}else {
+				alert ("Правильный ответ " + words[i][1]);
+			}
+		}
+	}
+
+		var easyWords = [
+			
+			["apple","яблоко"],
+			["bike","велосипед"],
+			["food","еда"],
+		];
+
+		askForWords(easyWords);
+		
+		alert("Позравляем вы запомнили простые слова! Переходим на новый уровень")
+		
+		hardWords = [
+
+			["Hereditary","наследственный"],
+			["Hospitable","гостеприимный"]
+			["Onomatopoeia","ономатопея"]
+		];
+
+		askForWords(hardWords)
+
+ </script>

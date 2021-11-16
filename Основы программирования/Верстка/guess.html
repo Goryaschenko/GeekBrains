@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Личный сайт студента GeekBrains</title>
+	<link rel="stylesheet" href="style.css"> 
+	<script type="text/javascript">
+
+		var answer = parseInt(Math.random() * 100);
+		var tryCount = 0;
+		var maxTryCount = 3;
+		var playerNumber = 1;
+
+		function readInt(){
+			var number = document.getElementById("userAnswer").value;
+			return parseInt(number);
+			// return +document.getElementById("userAnswer").value;
+		}
+
+		function write(text){
+			document.getElementById("info").innerHTML = text;
+		}
+
+		function hide(id){
+			document.getElementById(id).style.display = "none";
+		}
+
+
+		function loser(){
+				hide("button1");
+				hide("button2");				
+				hide("userAnswer");
+				if(playerNumber == 1)
+				playerNumber = 2;
+				else
+				playerNumber = 1;	
+				write("Выиграл игрок " + playerNumber + "<br> Загаданное число было: " + answer)
+		}
+
+		function guess(){
+			tryCount++;
+			write("Игрок №" + playerNumber + " Введи свое число")
+			var userAnswer = readInt();
+			if(userAnswer == answer){
+				write("<b>Поздравляю победил игрок №" + playerNumber +  "</b>");
+				hide("button1");
+				hide("button2");
+				hide("userAnswer");
+			} else if(userAnswer > answer){
+
+
+				if(playerNumber == 1)
+				playerNumber = 2;
+				else
+				playerNumber = 1;
+				document.getElementById('userAnswer').value = ''
+				write("Вы ввели слишком большое число<br>" +  "Игрок № "+ playerNumber + " Введи свое число" );
+			} else if(userAnswer < answer){
+
+				if(playerNumber == 1)
+				playerNumber = 2;
+				else
+				playerNumber = 1;
+
+				document.getElementById('userAnswer').value = ''
+				write("Вы ввели слишком маленькое число<br>" + "Игрок № "+ playerNumber + " Введи свое число");	
+			}
+		
+		}
+
+	</script>
+</head>
+<body>
+
+<div class="content">
+	<div class="header">
+		<a href="index.html">Главная</a>
+		<a href="puzzle.html">Загадки</a>
+		<a href="guess.html">Угадайка</a>
+		<a href="pass.html">Генератор паролей</a>
+	</div>
+
+<div class="contentWrap">
+    <div class="content">
+        <div class="center">
+
+			<h1>Игра угадайка</h1>
+
+			<div class="box">
+
+				<p id="info">Игрок №1 Введите первое число</p>
+				<input type="text" id="userAnswer" onfocus="this.value=''" value="Введи число">
+				<br>
+				<a href="#" onClick="guess();" id="button1">Ввод</a>
+				<a href="#" onClick="loser();" id="button2">Сдаться</a>				
+			</div>
+
+        </div>
+    </div>
+</div>
+
+	
+
+</div>
+<div class="footer">
+	Copyright &copy; Vasily Pupkin
+<div>
+
+
+</body>
+</html>

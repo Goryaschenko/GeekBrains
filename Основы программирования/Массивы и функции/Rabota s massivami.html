@@ -1,0 +1,73 @@
+<meta charset="utf-8">
+<script type="text/javascript">
+
+	//Приветственное сообщение
+	alert("Эта программа принимает массив чисел. И выполняет с ними разные действия. \n 1 - Суммирует все числа в массиве \n 2 - Находит максимальное чилсо\n 3 - Находит минимальное чилсо \n 4 - Находит только четные числа")
+
+	function getArrey (arrey){ //Функция заполнения массива
+		var input = prompt("Введите произвольное количество целых через запятую (Дробные числа вводятся через точку (Например: 0.1)");
+		var inputArrey = input.split(',').map(parseFloat); // содает массив из чисел разделенных пробелом (Метод parseFloat преобразует строковый аргумент в число с плавающей точкой)
+		return inputArrey; //возвращает InputArrey в переменную в строку "var arrey = getArrey(arrey);"
+	}
+
+	function getSum	(sumArrey){	//Функция суммироания всех элементов массива
+		var arreyLenght = arrey.length;
+		var sum =0;
+		for(var i = 0; i <= arreyLenght-1; i++){
+			sum = arrey[i]+sum;	
+		}
+		return sum;
+	}
+
+	function getMax (maxArrey){
+		var arreyLenght = arrey.length;
+		var max = arrey[0];
+
+		for(i=0; i<= arreyLenght-1; i++){
+			if (arrey[i]>max)
+			max = arrey[i];	
+		}
+		return max;
+	}
+
+	function getMin (minArrey){
+		var arreyLenght = arrey.length;
+		var min = arrey[0];
+
+		for(i=0; i<= arreyLenght-1; i++){
+			if (arrey[i]<min)
+			min = arrey[i];	
+		}
+		return min;
+	}
+
+	function getEven(evenArrey){
+		var arreyLenght = arrey.length;
+		var even = [];
+		for(i=0; i <= arreyLenght-1; i++){
+			if (arrey[i]%2 == 0) {
+			even.push(arrey[i])	
+			}
+		}
+		return even;
+	}
+
+
+
+	var arrey = getArrey(arrey);
+	var sumArrey = getSum(sumArrey);
+	var maxArrey = getMax(maxArrey);
+	var minArrey = getMin(minArrey);
+	var evenArrey = getEven(evenArrey)
+
+ 	document.write("Ваш массив: "+ arrey + "<br>" + "Сумма чисел в массиве: "+ sumArrey + "<br>" + "Максимально число в массиве: "+ maxArrey + "<br>" + "Минимально число в массиве: " + minArrey + "<br>" + "Все четные числа массива: "+ evenArrey + "<br>");
+
+
+
+
+
+
+
+
+
+</script>

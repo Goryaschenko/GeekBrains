@@ -1,0 +1,40 @@
+<meta charset="utf-8">
+<script type="text/javascript">
+
+	function campareAnswers(userUnswer, answer){ //функция которая проверяет правильность ответа
+		if(userUnswer == answer){
+			alert("Верный ответ");
+		} else {
+			alert("Неверно. Правильный ответ " + answer);
+		}
+	}
+
+	function getRandomeNumber(max){
+			return Math.round(Math.random() * max);	
+	}
+
+	function generateRandomeNumberArray(length){
+		var arr = [];
+		for(var i=0; i<length; i++){
+			var rundomNumber = getRandomeNumber(100);
+			arr.push(rundomNumber);	
+		}
+		return arr;
+	}
+
+	var numbers = generateRandomeNumberArray(5);
+
+	alert("Запомни числа и их порядок: " + numbers );
+
+	var userUnswer = +prompt("Каким было первое число?");
+	campareAnswers(userUnswer, numbers[0]);
+
+	var userUnswer = +prompt("А последнее? ");
+	campareAnswers(userUnswer, numbers[numbers.length -1]);
+
+	var n = getRandomeNumber(numbers.length - 1);
+	var userUnswer = +prompt("А теперь число под номером " + (n + 1) + "?");
+	campareAnswers(userUnswer, numbers[n]);
+
+	
+</script>

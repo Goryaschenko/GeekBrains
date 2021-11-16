@@ -1,0 +1,48 @@
+<meta charset="utf-8">
+<script type="text/javascript">
+
+
+	function getRandomeNumber(max){
+		return Math.round(Math.random() * max);
+		
+		//После returne программы уже не выполняются
+	}
+
+	function max(a, b){
+		if( a> = b){
+		return a;	
+		}
+	}else {
+		return b;
+	}
+
+	function factorial (n){
+		var result = 1;
+		for (var i = 1; i <= n; i++;){
+		result = result * i;	
+		}
+		return result;
+	}
+
+
+	function recursiveFactorial(n){        //рекурсивная функция расчета факториалачилса n 
+		if(n ==0 )
+			return 1;
+	else 
+		return recursiveFactorial (n-1) *n;
+	}
+
+
+
+	var rf = recursiveFactorial(4)
+
+	var f = factorial(5);
+	var a = max(34, 68);
+	var c = max (a, 98) + 4;
+	var n = getRandomeNumber(100);
+	var m = getRandomeNumber(4);
+	
+
+
+
+</script>
