@@ -8,6 +8,7 @@
 то программа должна сообщать ему об ошибке и снова запрашивать знак операции.
 Также сообщать пользователю о невозможности деления на ноль, если он ввел 0 в качестве делителя.
 """
+import random
 
 while True:
     maze = input("Введи выражение в формате A + B Через пробел: ").split()
@@ -117,3 +118,88 @@ for row in rows:
     for x in row:
         print("%10s" % (x), end="   ")
     print()
+
+
+"""
+6. В программе генерируется случайное целое число от 0 до 100.
+Пользователь должен его отгадать не более чем за 10 попыток.
+После каждой неудачной попытки должно сообщаться больше или меньше введенное пользователем число, чем то, что загадано.
+Если за 10 попыток число не отгадано, то вывести загаданное число.
+"""
+import random
+
+
+def is_right(answer, rand_number, nom_of_try):
+    global check_winner
+    check_winner = 0
+    if answer > rand_number:
+        return print(f"Ваше число больше загаданного, осталось {10 - int(nom_of_try)} попыток")
+    elif answer < rand_number:
+        return print(f"Ваше число меньше загаданного, осталось {10 - int(nom_of_try)} попыток")
+    elif answer == rand_number:
+        print(f"Вы угадали загаданное число было {rand_number},\n"
+              f"Количество попыток: {int(nom_of_try) + 1}")
+        check_winner = 1
+        return check_winner
+
+
+number = random.randint(0, 100)
+print(number)
+for nom_of_try in range(10):
+    is_right(int(input("Вееди число")), number, nom_of_try)
+    if check_winner == 1:
+        break
+
+
+"""
+7. Напишите программу, доказывающую или проверяющую, что для множества натуральных чисел выполняется равенство:
+1+2+...+n = n(n+1)/2, где n - любое натуральное число.
+"""
+
+
+def set_of_nat(num):
+    sum_of_numb = 0
+    for i in range(1, num + 1):
+        sum_of_numb += i
+    func = num * (num + 1) / 2
+    print(f"Сумма чисел = {sum_of_numb}")
+    print(f"n(n+1)/2 = {func}\n"
+          f"Где n = {num}")
+
+
+set_of_nat(int(input("Введи количество натуральных чисел n = ")))
+"""
+8. Посчитать, сколько раз встречается определенная цифра в введенной последовательности чисел.
+Количество вводимых чисел и цифра, которую необходимо посчитать, задаются вводом с клавиатуры.
+"""
+
+
+def how_much(subs, number):
+    flag = 0
+    mas = [int(a) for a in str(subs)]
+    for i in mas:
+        if i == number:
+            flag += 1
+    return print(f"Количество {number} в {subs} = {flag}")
+
+
+how_much(input("Введи произвольное положительно число"), int(input("Введи искомое число")))
+
+"""
+ Среди натуральных чисел, которые были введены, найти наибольшее по сумме цифр.
+ Вывести на экран это число и сумму его цифр.
+"""
+
+
+def sum_of_num(num_maze):
+    print(f"Ваш ряд чисел: {num_maze}")
+
+    for item in num_maze:
+        sum_i = sum(map(int, str(item)))
+        sum_maze = 0
+        if sum_i > sum_maze:
+            sum_maze = sum_i
+    print(f"Большее по сумме цифр число:{item}, Суммы его цифр = {sum_maze}")
+
+
+sum_of_num(input("Введи несколько произвольных положительных целых чисел через пробел: ").split())
